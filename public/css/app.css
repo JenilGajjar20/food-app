@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap);
+.module{
+  width: 100%;
+}
+@media (min-width: 640px){
+  .module{
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px){
+  .module{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+  .module{
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px){
+  .module{
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px){
+  .module{
+    max-width: 1536px;
+  }
+}
+.module{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a{
+  text-decoration-line: none;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ccc;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: #ffffff;
+}
+.navbar-title > h4{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.navbar-title > h4 > span {
+  color: #fe5f1e;
+}
+.navbar-items__list{
+  display: flex;
+  align-items: center;
+}
+.navbar-items__list > li{
+  margin-left: 1.5rem;
+  list-style-type: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+.navbar-items__list > li a {
+  color: #232323;
+}
+.navbar-items__list > li a:hover {
+  color: #fe5f1e;
+}

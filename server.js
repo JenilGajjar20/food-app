@@ -6,6 +6,9 @@ const expressLayout = require("express-ejs-layouts");
 // Creating an express app
 const app = express();
 
+// Assets
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
   res.render("home");
 });
