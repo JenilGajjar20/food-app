@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:wght@400;500;600;700&display=swap");
 
 @import "./variables";
 @import "./common.scss";
@@ -28,11 +28,49 @@ body {
         @apply ml-6 list-none font-semibold text-sm;
         a {
           color: $black;
+          transition: $smooth;
           &:hover {
             color: $primary;
           }
         }
       }
+    }
+  }
+}
+
+.hero {
+  @apply py-16;
+  &-section {
+    @apply flex justify-around;
+    &__content {
+      @apply w-1/2;
+      & > h4 {
+        @apply text-2xl font-medium;
+        & > span {
+          color: $primary;
+        }
+      }
+      & > p {
+        @apply text-7xl font-bold my-3;
+        & > span {
+          color: $primary;
+          font-family: $display;
+        }
+      }
+    }
+    &__image {
+      img {
+        @apply rounded-full h-96 w-96;
+      }
+    }
+  }
+  button {
+    background-color: $primary;
+    color: $white;
+    font-family: $default;
+    transition: $smooth;
+    &:hover {
+      background-color: $primary-hover;
     }
   }
 }

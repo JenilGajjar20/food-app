@@ -5,3 +5,7 @@
 a {
   @apply no-underline;
 }
+
+.btn {
+  @apply py-2 px-4 rounded border-none cursor-pointer font-medium mt-5;
+}

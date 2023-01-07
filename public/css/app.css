@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:wght@400;500;600;700&display=swap);
 .module{
   width: 100%;
 }
@@ -34,6 +34,18 @@
 
 a{
   text-decoration-line: none;
+}
+
+.btn{
+  margin-top: 1.25rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border-style: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
 }
 
 *{
@@ -77,7 +89,53 @@ body {
 }
 .navbar-items__list > li a {
   color: #232323;
+  transition: 0.1s all ease-in-out;
 }
 .navbar-items__list > li a:hover {
   color: #fe5f1e;
+}
+
+.hero{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.hero-section{
+  display: flex;
+  justify-content: space-around;
+}
+.hero-section__content{
+  width: 50%;
+}
+.hero-section__content > h4{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+.hero-section__content > h4 > span {
+  color: #fe5f1e;
+}
+.hero-section__content > p{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+}
+.hero-section__content > p > span {
+  color: #fe5f1e;
+  font-family: "Caveat Brush", cursive;
+}
+.hero-section__image img{
+  height: 24rem;
+  width: 24rem;
+  border-radius: 9999px;
+}
+.hero button {
+  background-color: #fe5f1e;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  transition: 0.1s all ease-in-out;
+}
+.hero button:hover {
+  background-color: #b23301;
 }
