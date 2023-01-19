@@ -55,7 +55,6 @@ a{
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ccc;
 }
 
 .navbar{
@@ -98,6 +97,7 @@ body {
 .hero{
   padding-top: 4rem;
   padding-bottom: 4rem;
+  background-color: #ccc;
 }
 .hero-section{
   display: flex;
@@ -138,4 +138,91 @@ body {
 }
 .hero button:hover {
   background-color: #b23301;
+}
+
+.menu{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.menu-title{
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+.menu-content{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  row-gap: 4rem;
+}
+.menu-content__card{
+  width: 16rem;
+  text-align: center;
+}
+
+.card-img{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  height: 10rem;
+}
+.card-content{
+  text-align: center;
+}
+.card-title{
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.card-text{
+  margin-left: auto;
+  margin-right: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 9999px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  background-color: #f8f8f8;
+}
+.card-bottom{
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.card-price{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+.card-btn{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+.card-btn > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.card-btn{
+  border-radius: 9999px;
+  background-color: transparent;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-weight: 700;
+  border: 2px solid #fe5f1e;
+  color: #fe5f1e;
+  transition: 0.1s all ease-in-out;
+}
+.card-btn:hover {
+  background-color: #fe5f1e;
+  color: #ffffff;
 }

@@ -9,7 +9,6 @@
 
 body {
   font-family: $default;
-  background-color: $gray;
 }
 
 .navbar {
@@ -40,6 +39,7 @@ body {
 
 .hero {
   @apply py-16;
+  background-color: $gray;
   &-section {
     @apply flex justify-around;
     &__content {
@@ -71,6 +71,51 @@ body {
     transition: $smooth;
     &:hover {
       background-color: $primary-hover;
+    }
+  }
+}
+
+.menu {
+  @apply py-8;
+  &-title {
+    @apply font-bold mb-8;
+  }
+  &-content {
+    @apply grid grid-cols-4 gap-x-12 gap-y-16;
+    &__card {
+      @apply w-64 text-center;
+    }
+  }
+}
+
+.card {
+  &-img {
+    @apply h-40 mb-4 mx-auto;
+  }
+  &-content {
+    @apply text-center;
+  }
+  &-title {
+    @apply text-lg mb-4;
+  }
+  &-text {
+    @apply py-2 px-4 rounded-full text-xs uppercase w-fit mx-auto;
+    background-color: $secondary;
+  }
+  &-bottom {
+    @apply flex items-center justify-around mt-6;
+  }
+  &-price {
+    @apply font-bold text-lg;
+  }
+  &-btn {
+    @apply py-1 px-6 rounded-full cursor-pointer font-bold flex items-center space-x-2 bg-transparent;
+    border: 2px solid $primary;
+    color: $primary;
+    transition: $smooth;
+    &:hover {
+      background-color: $primary;
+      color: $white;
     }
   }
 }
