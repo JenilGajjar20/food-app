@@ -2,6 +2,7 @@
 
 @import "./variables";
 @import "./common.scss";
+@import "./auth.scss";
 
 * {
   @apply m-0 p-0;
@@ -9,6 +10,17 @@
 
 body {
   font-family: $default;
+}
+
+.login-btn {
+  @apply py-1 px-4 rounded font-medium;
+  border: 1px solid $primary;
+  color: $primary;
+  transition: $smooth;
+  &:hover {
+    background-color: $primary;
+    color: $white;
+  }
 }
 
 .navbar {
@@ -64,14 +76,15 @@ body {
       }
     }
   }
-  button {
-    background-color: $primary;
-    color: $white;
-    font-family: $default;
-    transition: $smooth;
-    &:hover {
-      background-color: $primary-hover;
-    }
+}
+
+button {
+  background-color: $primary;
+  color: $white;
+  font-family: $default;
+  transition: $smooth;
+  &:hover {
+    background-color: $primary-hover;
   }
 }
 
@@ -117,5 +130,86 @@ body {
       background-color: $primary;
       color: $white;
     }
+  }
+}
+
+.cart {
+  background-color: $secondary;
+}
+
+.order {
+  @apply w-1/2 py-16;
+  &-title {
+    @apply pb-4 flex items-center;
+    & > h2 {
+      @apply text-2xl ml-4;
+    }
+  }
+  &-total {
+    @apply text-right py-4 font-bold;
+  }
+}
+
+.total {
+  &-text {
+    @apply text-lg;
+  }
+  &-price {
+    @apply text-2xl;
+    color: $primary;
+  }
+}
+
+.form {
+  @apply flex flex-col items-end py-5;
+  input {
+    @apply border-none py-2 px-4 rounded mb-2;
+    border: 1px solid $primary;
+    &:focus {
+      @apply outline-none shadow-md;
+      border: 1px solid $primary-hover;
+    }
+  }
+}
+
+.item {
+  @apply flex items-center my-8;
+  & > img {
+    @apply w-24;
+  }
+  &-data {
+    @apply ml-4 flex-1;
+    & > span {
+      @apply text-gray-500;
+    }
+  }
+  &-qty {
+    @apply flex-1;
+  }
+  &-price {
+    @apply font-bold;
+  }
+}
+
+.empty-cart {
+  @apply py-16;
+  &__content {
+    @apply text-center;
+  }
+  &__title {
+    @apply text-3xl mb-2;
+  }
+  &__description {
+    @apply text-gray-500 mb-8;
+    & > a {
+      color: $primary;
+      @apply font-semibold;
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+  &__img {
+    @apply w-1/2;
   }
 }

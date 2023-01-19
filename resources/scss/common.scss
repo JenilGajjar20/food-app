@@ -9,3 +9,19 @@ a {
 .btn {
   @apply py-2 px-4 rounded border-none cursor-pointer font-medium mt-5;
 }
+
+.link {
+  @apply mt-4 flex justify-between;
+  a {
+    @apply font-medium;
+    color: $primary;
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+.bottom-bar {
+  @apply w-full absolute bottom-0 h-3;
+  background-color: $primary;
+}

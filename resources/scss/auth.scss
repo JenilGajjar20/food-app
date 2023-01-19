@@ -1,0 +1,24 @@
+.auth {
+  @apply py-24;
+  &-form {
+    @apply w-1/4 mx-auto;
+    &__title {
+      @apply text-4xl mb-2 text-center;
+      & > span {
+        color: $primary;
+      }
+    }
+    form {
+      @apply flex flex-col;
+      & > input {
+        @apply py-3 px-4 rounded border-none mt-3;
+        background-color: $secondary;
+      }
+    }
+    &__btn {
+      button {
+        @apply w-full;
+      }
+    }
+  }
+}
