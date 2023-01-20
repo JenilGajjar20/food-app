@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:wght@400;500;600;700&display=swap");
 
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/metroui.scss";
+
 @import "./variables";
 @import "./common.scss";
 @import "./auth.scss";
@@ -103,7 +106,7 @@ button {
 
 .card {
   &-img {
-    @apply h-40 mb-4 mx-auto;
+    @apply w-40 h-40 mb-4 mx-auto rounded-full;
   }
   &-content {
     @apply text-center;
@@ -175,7 +178,7 @@ button {
 .item {
   @apply flex items-center my-8;
   & > img {
-    @apply w-24;
+    @apply w-24 h-24 rounded-full;
   }
   &-data {
     @apply ml-4 flex-1;

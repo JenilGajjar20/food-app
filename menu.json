@@ -1,0 +1,74 @@
+[
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea1"
+    },
+    "name": "Waffle",
+    "toppings": "Strawberry",
+    "image": "waffle.png",
+    "price": "140"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea2"
+    },
+    "name": "Cheese Chilly Spiral",
+    "toppings": "Chilly Sauce",
+    "image": "cheese-chilly-spiral.jpg",
+    "price": "150"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea3"
+    },
+    "name": "Butter Garlic Fries",
+    "toppings": "Garlic",
+    "image": "butter-garlic-fries.jpg",
+    "price": "120"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea4"
+    },
+    "name": "Classic Red Velvet Waffle",
+    "toppings": "Kit-Kat",
+    "image": "classic-red-velvet.jpg",
+    "price": "190"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea5"
+    },
+    "name": "Golden Spiral",
+    "toppings": "Schezwan",
+    "image": "golden-spiral.jpg",
+    "price": "170"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea6"
+    },
+    "name": "Chocolate Waffle",
+    "toppings": "Chocolate",
+    "image": "choco-waffle.jpg",
+    "price": "160"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea7"
+    },
+    "name": "Pancake",
+    "toppings": "Strawberry",
+    "image": "pancake.jpg",
+    "price": "150"
+  },
+  {
+    "_id": {
+      "$oid": "5eee6692a27a66807cf2bea8"
+    },
+    "name": "Chocolate Pancake",
+    "toppings": "Chocolate",
+    "image": "choco-pancake.jpg",
+    "price": "160"
+  }
+]

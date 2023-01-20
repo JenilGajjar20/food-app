@@ -1,46 +1,59 @@
 <section class="cart">
-    <div class="order module">
-        <div class="order-title">
-            <img src="/img/MdiCart.svg" alt="">
-            <h2>Order Summary</h2>
-        </div>
-        <hr />
-        <div class="items-list">
-            <div class="item">
-                <img src="/img/waffle.png" alt="waffle" />
-                <div class="item-data">
-                    <h1>Waffle</h1>
-                    <span>Strawberry Toppings</span>
-                </div>
-                <span class="item-qty">1 Pcs</span>
-                <span class="item-price">Rs. 300</span>
+    <% if(session.cart) { %>
+        <div class="order module">
+            <div class="order-title">
+                <img src="/img/MdiCart.svg" alt="">
+                <h2>Order Summary(<%= session.cart.totalQty %>)</h2>
             </div>
-        </div>
-        <hr />
-        <div class="order-total">
-            <div>
-                <span class="total-text">Total Amount:</span>
-                <span class="total-price">Rs. 300</span>
-            </div>
-            <div>
-                <form class="form">
-                    <input type="text" placeholder="Phone Number" />
-                    <input type="text" placeholder="Address" />
-                    <div>
-                        <button class="btn">Order Now</button>
+            <hr />
+            <div class="items-list">
+
+                <% for(let item of Object.values(session.cart.items)){ %>
+                    <div class="item">
+                        <img src="/img/<%= item.item.image %>" alt="waffle" />
+                        <div class="item-data">
+                            <h3>
+                                <%= item.item.name %>
+                            </h3>
+                            <span>
+                                <%= item.item.toppings %>
+                            </span>
+                        </div>
+                        <span class="item-qty">
+                            <%= item.qty %> Pc(s)
+                        </span>
+                        <span class="item-price">Rs. <%= item.item.price * item.qty %></span>
+                        (<%= item.item.price %> x <%= item.qty %>)
                     </div>
-                </form>
+                    <% } %>
             </div>
-            <!-- <a class="login-btn" href="">Login to continue</a> -->
+            <hr />
+            <div class="order-total">
+                <div>
+                    <span class="total-text">Total Amount:</span>
+                    <span class="total-price">Rs. <%= session.cart.totalPrice %></span>
+                </div>
+                <div>
+                    <form class="form">
+                        <input type="text" placeholder="Phone Number" />
+                        <input type="text" placeholder="Address" />
+                        <div>
+                            <button class="btn">Order Now</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- <a class="login-btn" href="">Login to continue</a> -->
+            </div>
         </div>
-    </div>
-    <!-- <div class="empty-cart">
-        <div class="empty-cart__content module">
-            <h2 class="empty-cart__title">Cart Empty 😐</h2>
-            <p class="empty-cart__description">You haven't ordered any items yet. <br />
-                <a href="/">Click here</a> to fill the cart.
-            </p>
-            <img class="empty-cart__img" src="/img/empty-cart.jpg" alt="empty-cart">
-        </div>
-    </div> -->
+        <% } else { %>
+            <div class="empty-cart">
+                <div class="empty-cart__content module">
+                    <h2 class="empty-cart__title">Cart Empty 😐</h2>
+                    <p class="empty-cart__description">You haven't ordered any items yet. <br />
+                        <a href="/">Click here</a> to fill the cart.
+                    </p>
+                    <img class="empty-cart__img" src="/img/empty-cart.jpg" alt="empty-cart">
+                </div>
+            </div>
+            <% } %>
 </section>
