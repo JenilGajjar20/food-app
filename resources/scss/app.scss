@@ -26,6 +26,10 @@ body {
   }
 }
 
+.error {
+  @apply text-white font-medium text-center bg-red-500 rounded py-1 text-sm;
+}
+
 .navbar {
   @apply flex items-center justify-around py-6 shadow-md;
   background-color: $white;

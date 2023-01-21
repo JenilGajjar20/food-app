@@ -19,15 +19,21 @@
             <ul class="navbar-items__list">
                 <li><a href="">Menu</a></li>
                 <li><a href="">Offers</a></li>
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
-                <li>
-                    <a href="/cart">
-                        Cart - <span id="cart-counter">
-                            <%= session.cart?.totalQty ?? '0' %>
-                        </span>
-                    </a>
-                </li>
+                <% if(user) { %>
+                    <li><a href="/register">
+                            <%= user.name %>
+                        </a></li>
+                    <% } else { %>
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <% } %>
+                            <li>
+                                <a href="/cart">
+                                    Cart - <span id="cart-counter">
+                                        <%= session.cart?.totalQty ?? '0' %>
+                                    </span>
+                                </a>
+                            </li>
             </ul>
         </div>
     </nav>

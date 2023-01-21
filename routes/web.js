@@ -7,7 +7,10 @@ function initRoutes(app) {
 
   // Auth Routes
   app.get("/login", authController().login);
+  app.post("/login", authController().createLogin);
+
   app.get("/register", authController().register);
+  app.post("/register", authController().createAccount);
 
   // Cart Routes
   app.get("/cart", cartController().index);

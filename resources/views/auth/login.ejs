@@ -1,12 +1,17 @@
 <section class="auth">
     <div class="auth-form">
         <h2 class="auth-form__title">Food<span>Mania</span></h2>
-        <form>
-            <input type="email" placeholder="Email Address" />
-            <input type="password" placeholder="Password" />
-            <div class="auth-form__btn">
-                <button class="btn">Login</button>
-            </div>
+        <form action="/login" method="POST">
+            <% if(messages.error) { %>
+                <span class="error">
+                    <%= messages.error %>
+                </span>
+                <% } %>
+                    <input type="email" name="email" placeholder="Email Address" />
+                    <input type="password" name="password" placeholder="Password" />
+                    <div class="auth-form__btn">
+                        <button class="btn" type="submit">Login</button>
+                    </div>
         </form>
         <div class="link">
             <span>Don't have an account?</span>

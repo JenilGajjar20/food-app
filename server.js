@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const flash = require("express-flash");
 const MongoStore = require("connect-mongo");
+const passport = require("passport");
 
 // Creating an express app
 const app = express();
@@ -36,11 +37,19 @@ app.use(flash());
 
 // Assets
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Passport config
+const passportInit = require("./app/config/passport");
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Global middleware
 app.use((req, res, next) => {
   res.locals.session = req.session;
+  res.locals.user = req.user;
   next();
 });
 
