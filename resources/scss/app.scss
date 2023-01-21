@@ -30,6 +30,12 @@ body {
   @apply text-white font-medium text-center bg-red-500 rounded py-1 text-sm;
 }
 
+.username {
+  color: $white !important;
+  background-color: $primary;
+  @apply py-1 px-3 rounded-full;
+}
+
 .navbar {
   @apply flex items-center justify-around py-6 shadow-md;
   background-color: $white;

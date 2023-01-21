@@ -20,9 +20,14 @@
                 <li><a href="">Menu</a></li>
                 <li><a href="">Offers</a></li>
                 <% if(user) { %>
-                    <li><a href="/register">
+                    <li><a href="#" class="username">
                             <%= user.name %>
                         </a></li>
+                    <li>
+                        <form id="logout" action="/logout" method="POST">
+                            <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                        </form>
+                    </li>
                     <% } else { %>
                         <li><a href="/register">Register</a></li>
                         <li><a href="/login">Login</a></li>

@@ -67,12 +67,20 @@ function authController() {
       user
         .save()
         .then(() => {
-          return res.redirect("/");
+          return res.redirect("/login");
         })
         .catch((err) => {
           req.flash("error", "Something went wrong. Try again.");
           return res.redirect("/register");
         });
+    },
+    logout(req, res, next) {
+      req.logout(function (err) {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect("/login");
+      });
     },
   };
 }
