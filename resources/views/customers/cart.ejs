@@ -1,7 +1,7 @@
-<section class="cart">
+<section class="cart-section">
     <% if(session.cart) { %>
-        <div class="order module">
-            <div class="order-title">
+        <div class="cart module">
+            <div class="cart-title">
                 <img src="/img/MdiCart.svg" alt="">
                 <h2>Order Summary(<%= session.cart.totalQty %>)</h2>
             </div>
@@ -28,21 +28,26 @@
                     <% } %>
             </div>
             <hr />
-            <div class="order-total">
+            <div class="cart-total">
                 <div>
                     <span class="total-text">Total Amount:</span>
                     <span class="total-price">Rs. <%= session.cart.totalPrice %></span>
                 </div>
-                <div>
-                    <form class="form">
-                        <input type="text" placeholder="Phone Number" />
-                        <input type="text" placeholder="Address" />
-                        <div>
-                            <button class="btn">Order Now</button>
+                <% if(user) { %>
+                    <div>
+                        <form action="/orders" method="POST" class="form">
+                            <input type="text" name="phone" placeholder="Phone Number" />
+                            <input type="text" name="address" placeholder="Address" />
+                            <div>
+                                <button class="btn">Order Now</button>
+                            </div>
+                        </form>
+                    </div>
+                    <% } else { %>
+                        <div class="login-btn">
+                            <a href="/login">Login to continue</a>
                         </div>
-                    </form>
-                </div>
-                <!-- <a class="login-btn" href="">Login to continue</a> -->
+                        <% } %>
             </div>
         </div>
         <% } else { %>

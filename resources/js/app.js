@@ -36,3 +36,11 @@ function updateCart(item) {
       }).show();
     });
 }
+
+// Remove order success alert after X seconds
+const orderAlert = document.querySelector(".order-alert");
+if (orderAlert) {
+  setTimeout(() => {
+    orderAlert.remove();
+  }, 5000);
+}

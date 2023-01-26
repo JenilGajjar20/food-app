@@ -20,6 +20,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
+    "moment": "^2.29.4",
     "mongoose": "^6.8.4",
     "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.6.0",

@@ -45,6 +45,14 @@ function updateCart(item) {
   });
 }
 
+// Remove order success alert after X seconds
+var orderAlert = document.querySelector(".order-alert");
+if (orderAlert) {
+  setTimeout(function () {
+    orderAlert.remove();
+  }, 5000);
+}
+
 /***/ }),
 
 /***/ "./node_modules/base64-js/index.js":

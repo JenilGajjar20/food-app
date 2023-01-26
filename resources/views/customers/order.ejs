@@ -1,0 +1,46 @@
+<section class="orders">
+    <div class="order module">
+        <h2 class="order-title">All Orders</h2>
+
+        <% if(messages.success) { %>
+            <div class="order-alert">
+                <p>
+                    <%= messages.success %>
+                </p>
+            </div>
+            <% } %>
+
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th class="">Orders</th>
+                            <th class="">Address</th>
+                            <th class="">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(orders.length) { %>
+                            <% orders.forEach((order)=> { %>
+                                <tr>
+                                    <td class="item-id">
+                                        <a href="">
+                                            <%= order._id %>
+                                        </a>
+                                    </td>
+                                    <td class="item-address">
+                                        <%= order.address %>
+                                    </td>
+                                    <td class="item-time">
+                                        <%= moment(order.createdAt).format('hh:mm A') %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td>No Item Found!</td>
+                                        </tr>
+                                        <% } %>
+                    </tbody>
+                </table>
+    </div>
+</section>
