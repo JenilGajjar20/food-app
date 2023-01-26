@@ -232,7 +232,7 @@ button {
 }
 
 .order {
-  @apply py-10 h-screen;
+  @apply py-10;
   &-title {
     @apply text-3xl mb-2;
   }
@@ -260,6 +260,26 @@ button {
     color: $primary;
     &:hover {
       color: $primary-hover;
+    }
+  }
+}
+
+.order-table-body {
+  .order-items {
+    color: $primary;
+    @apply font-medium;
+  }
+  td {
+    @apply px-4 py-2;
+  }
+  .status {
+    &-form {
+      @apply inline-block relative w-64;
+    }
+    &-select {
+      background-color: $white;
+      border: 1px solid $gray;
+      @apply block appearance-none w-full px-4 py-2 pr-8 rounded shadow leading-tight;
     }
   }
 }

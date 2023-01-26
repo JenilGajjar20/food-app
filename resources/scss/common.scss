@@ -25,3 +25,23 @@ a {
   @apply w-full absolute bottom-0 h-3;
   background-color: $primary;
 }
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-1;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: $secondary;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: $primary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: $primary-hover;
+}

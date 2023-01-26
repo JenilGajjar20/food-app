@@ -1,5 +1,6 @@
 import axios from "axios";
 import Noty from "noty";
+import initAdmin from "./admin";
 
 const cardBtn = document.querySelectorAll(".card-btn");
 const cartCounter = document.querySelector("#cart-counter");
@@ -42,5 +43,7 @@ const orderAlert = document.querySelector(".order-alert");
 if (orderAlert) {
   setTimeout(() => {
     orderAlert.remove();
-  }, 5000);
+  }, 3000);
 }
+
+initAdmin();
