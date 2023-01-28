@@ -12,16 +12,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function initAdmin() {
+
+function initAdmin(socket) {
   var orderTableBody = document.querySelector(".order-table-body");
   var orders = [];
   var markup;
-  axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/admin-orders", {
+  axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/admin-orders", {
     headers: {
       "X-Requested-With": "XMLHttpRequest"
     }
@@ -32,7 +35,6 @@ function initAdmin() {
   });
   function renderItems(items) {
     var parsedItems = Object.values(items);
-    console.log("PARS: ", parsedItems);
     return parsedItems.map(function (menuItem) {
       return "<p>".concat(menuItem.item.name, " = ").concat(menuItem.qty, " pcs</p>");
     }).join("");
@@ -42,6 +44,19 @@ function initAdmin() {
       return "\n            <tr>\n                <td class=\"order-items\">\n                    <p>".concat(order._id, "</p>\n                    <div>").concat(renderItems(order.items), "</div>\n                </td>\n                <td>").concat(order.customerId.name, "</td>\n                <td>").concat(order.address, "</td>\n                <td>\n                    <div class=\"status-form\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\" />\n                            <select name=\"status\" onchange=\"this.form.submit()\" class=\"status-select\">\n                                <option value=\"order_placed\" ").concat(order.status === "order_placed" ? "selected" : "", ">Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === "confirmed" ? "selected" : "", ">Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === "prepared" ? "selected" : "", ">Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === "delivered" ? "selected" : "", ">Delivered</option>\n                                <option value=\"completed\" ").concat(order.status === "completed" ? "selected" : "", ">Completed</option>\n                            </select>\n                        </form>\n                        <div class=\"\"></div>\n                    </div>\n                </td>\n                <td>\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_0___default()(order.createdAt).format("hh:mm A"), "\n                </td>\n            </tr>\n        ");
     }).join("");
   }
+  socket.on("orderPlaced", function (order) {
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      theme: "metroui",
+      type: "success",
+      timeout: 1500,
+      layout: "topRight",
+      text: "Order Placed Successfully 🎉",
+      progressBar: true
+    }).show();
+    orders.unshift(order);
+    orderTableBody.innerHTML = "";
+    orderTableBody.innerHTML = generateMarkup(orders);
+  });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initAdmin);
 
@@ -61,6 +76,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 
@@ -103,7 +124,6 @@ if (orderAlert) {
     orderAlert.remove();
   }, 3000);
 }
-(0,_admin__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 // Change Order Status
 var statuses = document.querySelectorAll(".status-line");
@@ -112,6 +132,10 @@ var order = hiddenInput ? hiddenInput.value : null;
 order = JSON.parse(order);
 var time = document.createElement("small");
 function updateStatus(order) {
+  statuses.forEach(function (status) {
+    status.classList.remove("step-done");
+    status.classList.remove("current-step");
+  });
   var stepCompleted = true;
   statuses.forEach(function (status) {
     var dataStatus = status.dataset.status;
@@ -129,6 +153,32 @@ function updateStatus(order) {
   });
 }
 updateStatus(order);
+
+// Socket
+var socket = io();
+(0,_admin__WEBPACK_IMPORTED_MODULE_1__["default"])(socket);
+if (order) {
+  socket.emit("join", "order_".concat(order._id));
+}
+var adminAreaPath = window.location.pathname;
+console.log(adminAreaPath);
+if (adminAreaPath.includes("admin")) {
+  socket.emit("join", "adminRoom");
+}
+socket.on("orderUpdated", function (data) {
+  var updatedOrder = _objectSpread({}, order);
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_2___default()().format();
+  updatedOrder.status = data.status;
+  updateStatus(updatedOrder);
+  new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
+    theme: "metroui",
+    type: "success",
+    timeout: 1500,
+    layout: "topRight",
+    text: "Order Updated Successfully 🎉",
+    progressBar: true
+  }).show();
+});
 
 /***/ }),
 

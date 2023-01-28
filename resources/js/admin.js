@@ -1,7 +1,8 @@
 import axios from "axios";
 import moment from "moment";
+import Noty from "noty";
 
-function initAdmin() {
+function initAdmin(socket) {
   const orderTableBody = document.querySelector(".order-table-body");
   let orders = [];
   let markup;
@@ -23,7 +24,6 @@ function initAdmin() {
 
   function renderItems(items) {
     let parsedItems = Object.values(items);
-    console.log("PARS: ", parsedItems);
     return parsedItems
       .map((menuItem) => {
         return `<p>${menuItem.item.name} = ${menuItem.qty} pcs</p>`;
@@ -79,6 +79,21 @@ function initAdmin() {
       })
       .join("");
   }
+
+  socket.on("orderPlaced", (order) => {
+    new Noty({
+      theme: "metroui",
+      type: "success",
+      timeout: 1500,
+      layout: "topRight",
+      text: "Order Placed Successfully 🎉",
+      progressBar: true,
+    }).show();
+
+    orders.unshift(order);
+    orderTableBody.innerHTML = "";
+    orderTableBody.innerHTML = generateMarkup(orders);
+  });
 }
 
 export default initAdmin;
