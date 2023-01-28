@@ -1,6 +1,7 @@
 import axios from "axios";
 import Noty from "noty";
 import initAdmin from "./admin";
+import moment from "moment";
 
 const cardBtn = document.querySelectorAll(".card-btn");
 const cartCounter = document.querySelector("#cart-counter");
@@ -47,3 +48,33 @@ if (orderAlert) {
 }
 
 initAdmin();
+
+// Change Order Status
+let statuses = document.querySelectorAll(".status-line");
+let hiddenInput = document.querySelector("#hidden-input");
+let order = hiddenInput ? hiddenInput.value : null;
+order = JSON.parse(order);
+
+let time = document.createElement("small");
+
+function updateStatus(order) {
+  let stepCompleted = true;
+
+  statuses.forEach((status) => {
+    let dataStatus = status.dataset.status;
+    if (stepCompleted) {
+      status.classList.add("step-done");
+    }
+
+    if (dataStatus === order.status) {
+      stepCompleted = false;
+      time.innerText = moment(order.updatedAt).format("hh:mm A");
+      status.appendChild(time);
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add("current-step");
+      }
+    }
+  });
+}
+
+updateStatus(order);

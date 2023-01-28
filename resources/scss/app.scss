@@ -150,8 +150,10 @@ button {
 }
 
 .cart-section,
-.orders {
+.orders,
+.status {
   background-color: $secondary;
+  min-height: calc(100vh - 86px);
 }
 
 .cart {
@@ -282,4 +284,100 @@ button {
       @apply block appearance-none w-full px-4 py-2 pr-8 rounded shadow leading-tight;
     }
   }
+}
+
+.order-status {
+  @apply py-10;
+}
+
+.status-box {
+  @apply w-2/3 mx-auto;
+  &__header {
+    @apply flex items-center justify-between pb-5;
+    h4 {
+      @apply text-2xl;
+    }
+    span {
+      background-color: $white;
+      @apply text-green-500 text-sm py-2 px-4 rounded-full font-medium;
+    }
+  }
+}
+
+.status-line {
+  @apply text-xl pb-16 flex items-center justify-between;
+}
+
+.last-line {
+  @apply p-0;
+}
+
+// Dots
+.list-items {
+  @apply ml-16;
+  li {
+    @apply list-none relative;
+    span {
+      @apply relative pl-5;
+      &:after {
+        @apply content-[''] absolute -left-2 top-1/2 h-2 w-2 rounded-full;
+        box-shadow: 0 0 1px 10px $secondary;
+        transform: translateY(-50%);
+        background-color: $black;
+      }
+      &:before {
+        @apply absolute -left-16 top-1/2 font-bold text-4xl text-inherit;
+        transform: translateY(-50%);
+        font-family: "Line Awesome Free";
+      }
+    }
+    &:before {
+      @apply content-[''] absolute w-0.5 h-full -left-1.5 top-0 mt-2.5;
+      background-color: $black;
+    }
+  }
+}
+
+.list-items li:nth-child(1) span:before {
+  @apply content-['\f46c'];
+}
+
+.list-items li:nth-child(2) span:before {
+  @apply content-['\f560'];
+}
+
+.list-items li:nth-child(3) span:before {
+  @apply content-['\f818'];
+}
+
+.list-items li:nth-child(4) span:before {
+  @apply content-['\f0d1'];
+}
+
+.list-items li:nth-child(5) span:before {
+  @apply content-['\f582'];
+}
+
+.list-items li:nth-child(5) span:after {
+  box-shadow: 0 20px 1px 20px $secondary;
+}
+
+.list-items li.step-done::before {
+  background-color: $gray;
+}
+
+.list-items li.step-done span::after {
+  background-color: $gray;
+}
+
+.list-items li.step-done span {
+  color: $gray;
+}
+
+.list-items li.current-step span {
+  color: $primary;
+}
+
+.list-items li.current-step span::after {
+  background-color: $primary;
 }
