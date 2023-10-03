@@ -2,7 +2,6 @@
   <h1>Food App 🍔🍕🥗</h1>
 </div>
 
-
 <div align="center">
   <a href="https://github.com/JenilGajjar20/food-app/pulse"><img src="https://img.shields.io/github/repo-size/JenilGajjar20/food-app?style=for-the-badge" /></a>
   <a href="https://github.com/JenilGajjar20/food-app/issues"><img src="https://img.shields.io/github/issues/JenilGajjar20/food-app?style=for-the-badge" /></a>
@@ -18,7 +17,6 @@
   <br>
 </div>
 
-
 ## 🚀 Features
 
 ✨ Search for recipes by ingredients, cuisine, or dietary preferences.
@@ -33,7 +31,6 @@
 - CSS (1.7%)
 - EJS (1.1%)
 - SCSS (0.7%)
-
 
 ## 🏁 Getting Started
 
@@ -73,20 +70,14 @@ We welcome contributions from the community. If you'd like to contribute to the 
 4. Push your changes to your fork.
 5. Create a pull request to the `main` branch of this repository.
 
-## 👥 Contributors
+Happy Coding 😀
+
+<!-- ## 👥 Contributors
 
 Thanks to all the contributors who have helped make this project better! 🙌
 
-[![Contributors](https://contrib.rocks/image?repo=JenilGajjar20/food-app)](https://github.com/JenilGajjar20/food-app/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=JenilGajjar20/food-app)](https://github.com/JenilGajjar20/food-app/graphs/contributors) -->
 
+<!-- ## 📄 License
 
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-
-
-
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
